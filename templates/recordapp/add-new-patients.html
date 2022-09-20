@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href=" {% static 'recordapp/css/recordapp.css' %} " />
+<link href="{% static 'recordapp/css/jquery-ui.css' %}" rel="stylesheet">
+<link href="{% static 'recordapp/css/jquery-ui.structure.css' %}" rel="stylesheet">
+<link href="{% static 'recordapp/css/jquery-ui.theme.css' %}" rel="stylesheet">
+
+
+
+{% endblock  %}
+{% block main %}
+<main class="pt-3">
+
+<div class="container">
+    <div class="card">
+      <div class="card-header">
+        Add new Patient
+      </div>
+      <div class="card-body">
+        <div class="container">
+          
+          <form method="POST" action="{% url 'recordapp:add-new-patient' %}">
+            {% csrf_token %}
+            <div class="container-fluid border">
+
+              <div class="row mb-3 mt-3">
+                
+              <div class="col-md-4 ">
+                <label for="inputHospitalNo" class="form-label radio-inline">Patient Type</label>
+                <div class="group">
+                 
+                  {{ patient_form.patient_type }}
+                  
+                </div>
+                
+            </div>
+            <div class="col-md-4 ">
+              <label for="inputHospitalNo" class="form-label"> Patient Status </label>
+              <div class="group" id="status">
+              
+                {{ patient_form.status }}
+                
+              </div>
+              
+          </div>
+          <div class="col-md-4 ">
+            <label>Gender</label>
+            <div class="group">
+              {{patient_form.sex}}                
+             
+            </div>
+            
+          </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <label for="inputFirstName" class="form-label">First Name</label>
+                <div class="input-group flex-nowrap">
+                  <span class="input-group-text" id="addon-wrapping"><i class="bi bi-person-circle"></i></span>
+                  {{ patient_form.fname }}
+                </div>
+          
+              </div>
+              <div class="col-md-4">
+                <label for="inputMiddleName" class="form-label">Middle Name</label>
+                <div class="input-group flex-nowrap">
+                  <span class="input-group-text" id="addon-wrapping"><i class="bi bi-person-circle"></i></span>
+                  {{ patient_form.mname }}
+                </div>
+              </div>
+              <div class="col-md-4 ">
+                <label for="inputLastName" class="form-label">Last Name</label>
+                <div class="input-group flex-nowrap">
+                  <span class="input-group-text" id="addon-wrapping"><i class="bi bi-person-circle"></i></span>
+                  {{ patient_form.lname }}
+                </div>
+                
+              </div>
+            </div>
+              <div class="row mb-3">
+                
+                <div class="col-md-4">
+                  <label for="inputDOB" class="form-label">DOB</label>
+                  <div class ="input-group flex-nowrap">
+                 
+                  <span class="input-group-append">
+                    
+                      <i class="fa fa-calendar"></i>
+                       {{ patient_form.data_of_birth }}
+                    </span>
+                 
+                </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="inputEmail" class="form-label">Email Address</label>
+                  <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><i class="bi bi-envelope"></i></span>
+                    {{ patient_form.email }}
+                  
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="inputPhone" class="form-label">Phone Number</label>
+                  <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping">@</span>
+                    {{ patient_form.phone_number }}               </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-4">
+                  <label for="inputOccupation" class="form-label">Occupation</label>
+                  <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><i class="bi bi-layers"></i></span>
+                    {{ patient_form.occupation }}              </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="inputState" class="form-label">State</label>
+                  <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping">@</span>
+                    {{ patient_form.state_of_origin }}             
+                   </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="inputCity" class="form-label">LGA</label>
+                  <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping">@</span>
+                    {{ patient_form.city }}             
+    
+                    
+                  </div>
+                </div>
+    
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-4">
+                  <label for="inputTribe" class="form-label">Tribe</label>
+                  <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping">@</span>
+                    {{ patient_form.tribe }}               </div>
+                </div>
+                <div class="col-md-4">
+                  <p>Religion</p>
+                  <div class="form-check form-check-inline">
+                    {{ patient_form.religion}}    </div>
+                </div>
+                
+    
+              </div>
+              <div  class="row mb-3" >
+                <div class="col-12 d-grid gap-2" >
+                  <button type="submit" class="btn btn-dark">Add New Patient</button>
+                </div>
+              </div>
+            </div>
+            </div>  
+
+          </form>
+        </div>
+
+      </div>
+
+    
+   </div>
+</div>
+</main >
+
+{% endblock  %}
+{% block scripts %}
+<script src=" {% static 'recordapp/js/jquery-ui/jquery-ui.js' %} "></script>
+<script src=" {% static 'js/datepicker.js' %} "></script>
+<script src=" {% static 'js/javascripts.js' %} "></script>
+{% endblock  %}

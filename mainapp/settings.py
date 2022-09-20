@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #myapp
     'usersapp.apps.UsersappConfig',
+    'recordapp.apps.RecordappConfig',
 ]
 
 MIDDLEWARE = [

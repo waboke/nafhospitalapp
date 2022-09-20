@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href=" {% static 'recordapp/css/recordapp.css' %} " />
+
+{% endblock  %}
+
+{% block main %}
+{% comment %} {% include 'cards.html' %} {% endcomment %}
+<main class="pt-3 " >
+        <div class="row">
+          <div class="col mb-3" id="viewaptients">
+            <div class="card" >
+              <div class="card-header">
+                <div class="d-f
+                lex justify-content-between bg-light">
+                  <div > <span><i class="bi bi-table me-2"></i>All Patients</span> </div>
+                  <div><span class=""><i class="bi bi-table me-2"></i><a href="{% url 'recordapp:add-new-patient' %}" class="btn btn-sm btn-primary">Add New Patients</a></span> </div>
+                </div>
+              </div>
+              <div class="card-body" >
+                <div class="table-responsive">
+                  <table
+                    id="example"
+                    class="table table-striped data-table"
+                    style="width: 100%"
+                  >
+                    <thead>
+                      <tr>
+                        <th>serial</th>
+                        <th>Hospital No</th>
+                        <th>Full Names</th>
+                        <th>Phone Number</th>
+                        <th>Emaile</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        {% for patients in all_patient %}
+                        <td>{{forloop.counter}}</td>
+                        <td><a href="{% url 'recordapp:patient-details' patients.id %}">{{patients.hospitalNo}}</a></td>
+                        <td>{{patients.full_names}}</td>
+                        <td>{{patients.phone_number}}</td>
+                        <td>{{patients.email}}</td>
+                        <td>Age</td>
+                        <td>{{patients.sex}}</td>
+                        <td><a href="{% url 'recordapp:update-patient' patients.id %}" class="btn btn-sm btn-secondary">Edit</a></td>
+                        <td><a href="{% url 'recordapp:delete' patients.id %}" class="btn btn-sm btn-danger">Delete</a></td>
+                      </tr>
+                      {% endfor %}
+                      </tr>
+                    
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>serial</th>
+                        <th>Hospital No</th>
+                        <th>Full Names</th>
+                        <th>Phone Number</th>
+                        <th>Emaile</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+{% endblock main %}

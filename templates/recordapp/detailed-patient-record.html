@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href=" {% static 'assets/css/details.css' %} " />
+<link rel="stylesheet" href=" {% static 'assets/css/material.css' %} " />
+<link
+{% endblock  %}
+{% block main %}
+<main class="pt-3">
+
+<div class="grid-container">
+    <div class="update text-end px-4 "><a href="{{patient_details.get_absolute_url_update}}" class="btn btn-lg btn-outline-dark">Update Record</a></div>
+    <div class="hospital_no">{{patient_details.hospitalNo}}</div>
+    <div class="unit">Unit</div>
+    <div class="fullnames text-start">{{patient_details.full_names}}</div>
+    <div class="status">Patient Status</div>
+    <div class="picture">Picture</div>
+    <div class="email text-start">{{patient_details.email}}</div>  
+    <div class="gender">{{patient_details.sex}}</div>
+    <div class="age">Age</div>
+    <div class="ocupation">{{patient_details.occupation}}</div>
+    <div class="tribe">{{patient_details.tribe}}</div>
+    <div class="phone">{{patient_details.phone_number}}</div>
+    <div class="city">{{patient_details.city}}</div>
+    <div class="state">{{patient_details.state_of_origin}}</div>
+    <div class="religion">{{patient_details.religion}}</div>
+    <div class="next_of_kin">Next of kin</div>
+    <div class="radiology text-center">
+      
+      <small> Open/close folder</small>
+    <div>
+       <label class="toggle" for="myToggle">
+        <input class="toggle__input" name="" type="checkbox" id="myToggle">
+        <div class=" slider toggle__fill"></div>
+       
+    </label> 
+  </div>
+    </div>
+    <div class="open_folder text-center"> <a href="#" class="btn btn-dark btn-sm " >Close Folder</a></div>
+    <div class="lab text-center"><a href="#" class="btn btn-dark btn-sm " >Medical Lab</a></div>
+    <div class="pharm text-center"><a href="#" class="btn btn-dark btn-sm " >Pharmacy</a></div>
+    <div class="dental text-center"><a href="#" class="btn btn-dark btn-sm">dental</a></div>
+   
+  </div>
+</main>
+{% endblock main %}

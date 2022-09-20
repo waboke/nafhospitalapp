@@ -1,0 +1,419 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block links %}
+<link href=" {% static 'open_folderapp/css/bootstrap-switch.css' %} " rel="stylesheet">
+<link href="{% static 'open_folderapp/css/bootstrap4-toggle.min.css' %} " rel="stylesheet">
+{% endblock  %}
+{% block content-wrapper  %}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="float-left ml-3">
+          <h1>Patient Profile</h1>
+          </div>
+        </div>
+     
+        <div class="col-sm-6 "> 
+         
+          <div class='float-right mr-3 checktext '>
+            <h4 id="open"></h4>
+          <form id="form_folder" >
+            {% csrf_token %}
+            <input type="hidden" id="patientID" name="patientID" value="{{patient_details.id}}" >
+            
+            {{form.is_opened}}
+             
+           </form>
+          </div>
+         
+
+        </div>   
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content nopadding">
+    <div class="container-fluid nopadding">
+      <div class="row">
+        <div class="col-md-3">
+
+          <!-- personal details start -->      
+          
+                <div id="accordion">
+                  <div class="card card-primary">
+                    <div class="card-header">
+                      <h4 class="card-title w-100">
+                        <a class="d-block w-100" data-toggle="collapse" href="#collapseOne">
+                         {{patient_details.full_names}}
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="collapse" data-parent="#accordion">
+                      <div class="card-body">
+                        <div class="card-body box-profile">
+                          <div class="text-center">
+                            <img class="profile-user-img img-fluid img-circle"
+                                 src=" {% static 'dist/img/user4-128x128.jpg' %} "
+                                 alt="User profile picture">
+                          </div>
+                        <ul class="list-group list-group-unbordered mb-3">
+                          <li class="list-group-item">
+                            <b>Patient Status</b><small class="float-right">{{patient_details.status}}</small>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Patient Type</b> <small class="float-right">{{patient_details.patient_type}}</small>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Email</b> <div class="float-right"><small>{{patient_details.email}}</small></div>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Gender</b> <small class="float-right">{{patient_details.sex}}</small>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Occupation</b> <small class="float-right">{{patient_details.occupation}}</small>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Tribe</b> <small class="float-right">{{patient_details.tribe}}</small>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Phone</b> <small class="float-right">{{patient_details.phone_number}}</small>
+                          </li>
+                          <li class="list-group-item">
+                            <b>City</b> <small class="float-right">{{patient_details.city}}</small>
+                          </li>
+                          <li class="list-group-item">
+                            <b>State</b> <small class="float-right">{{patient_details.state_of_origin}}</small>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Religion</b> <small class="float-right">{{patient_details.religion}}</small>
+                          </li>
+                        </ul>
+          
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+        <!-- personal details ends -->  
+          <div id="accordion">
+            <div class="card card-primary">
+              <div class="card-header">
+                <div class="row">
+                  <div class="col-md-6">
+                  <h4 class="card-title w-100">
+                  <a class="d-block w-100" data-toggle="collapse" href="#address">
+                   Patient Address
+                  </a>
+                  
+                </h4>
+                  </div>
+                 
+                </div>
+                
+                
+              </div>
+              <div id="address" class="collapse" data-parent="#accordion">
+                
+                <div class="card-body">
+                 
+                  <div class="callout callout-danger">
+                    <h5>Residential Address</h5>
+  
+                   
+                  </div >
+                  <div class="row">
+                    <div class="col">
+                  <button type="button" class="btn btn-block btn-secondary btn-sm">Edit</button>
+                </div>
+                  <div class="col">
+                  <button type="button" class="btn btn-block btn-danger btn-sm">Delete</button>
+                  </div>
+                  
+                </div>
+                
+            </div>
+          </div>
+        </div>
+      
+     
+    </div>
+          <!-- Patient address start -->
+          
+        <!-- Patient address ends -->
+         <!-- next of kin start -->
+         <div id="accordion">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h4 class="card-title w-100">
+                <a class="d-block w-100" data-toggle="collapse" href="#nok">
+                 Next of Kin
+                </a>
+              </h4>
+            </div>
+            <div id="nok" class="collapse" data-parent="#accordion">
+              <div class="card-body">
+            
+          </div>
+        </div>
+      </div>
+    
+   
+  </div>
+ <!-- Next of kin ends -->
+ <!-- Dependant start -->
+ <div id="accordion">
+  <div class="card card-primary">
+    <div class="card-header">
+      <h4 class="card-title w-100">
+        <a class="d-block w-100" data-toggle="collapse" href="#dependant">
+         Dependant
+        </a>
+      </h4>
+    </div>
+    <div id="dependant" class="collapse" data-parent="#accordion">
+      <div class="card-body">
+    
+  </div>
+</div>
+</div>
+
+
+</div>
+<!-- Dependant ends -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+          <div class="card">
+            <div class="card-header p-2">
+              <ul class="nav nav-pills">
+                <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">OPD</a></li>
+                <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Laboratory</a></li>
+                <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Dental</a></li>
+                <li class="nav-item"><a class="nav-link book" id="book" href="#settings" data-toggle="tab"></a></li>
+              </ul>
+              <ul class="nav">
+             
+              </ul>
+            </div><!-- /.card-header -->
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="active tab-pane" id="activity">
+                  <!-- Post -->
+                  <div class="post clearfix">
+                    <div class="user-block">
+                      <img class="img-circle img-bordered-sm" src=" {% static 'dist/img/user7-128x128.jpg' %} " alt="User Image">
+                      <span class="username">
+                        <a href="#">{{patient_details.full_names}}</a>
+                        <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+                      </span>
+                      <span class="description">Sent you a message - 3 days ago</span>
+                    </div>
+                    <!-- /.user-block -->
+                    <p>
+                      Lorem ipsum represents a long-held tradition for designers,
+                      typographers and the like. Some people hate it and argue for
+                      its demise, but others ignore the hate as they create awesome
+                      tools to help create filler text for everyone from bacon lovers
+                      to Charlie Sheen fans.
+                    </p>
+
+                    <form class="form-horizontal">
+                      <div class="input-group input-group-sm mb-0">
+                        <input class="form-control form-control-sm" placeholder="Response">
+                        <div class="input-group-append">
+                          <button type="submit" class="btn btn-danger">Send</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  
+                </div>
+                <!-- /.tab-pane -->
+                <div class="tab-pane" id="timeline">
+                  <!-- The timeline -->
+                  <div class="timeline timeline-inverse">
+                    <!-- timeline time label -->
+                    <div class="time-label">
+                      <span class="bg-danger">
+                        10 Feb. 2014
+                      </span>
+                    </div>
+                    <!-- /.timeline-label -->
+                    <!-- timeline item -->
+                    <div>
+                      <i class="fas fa-envelope bg-primary"></i>
+
+                      <div class="timeline-item">
+                        <span class="time"><i class="far fa-clock"></i> 12:05</span>
+
+                        <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+
+                        <div class="timeline-body">
+                          Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+                          weebly ning heekya handango imeem plugg dopplr jibjab, movity
+                          jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+                          quora plaxo ideeli hulu weebly balihoo...
+                        </div>
+                        <div class="timeline-footer">
+                          <a href="#" class="btn btn-primary btn-sm">Read more</a>
+                          <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                        </div>
+                      </div>
+                    </div>
+                   
+                    <!-- END timeline item -->
+                    <div>
+                      <i class="far fa-clock bg-gray"></i>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.tab-pane -->
+
+                <div class="tab-pane" id="settings">
+                  <form class="form-horizontal">
+                    <div class="form-group row">
+                      <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                      <div class="col-sm-10">
+                        <input type="email" class="form-control" id="inputName" placeholder="Name">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                      <div class="col-sm-10">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputName2" placeholder="Name">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
+                      <div class="col-sm-10">
+                        <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="offset-sm-2 col-sm-10">
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="offset-sm-2 col-sm-10">
+                        <button type="submit" class="btn btn-danger">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.tab-pane -->
+              </div>
+              <!-- /.tab-content -->
+            </div><!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+{% endblock  %}
+{% block scripts %}
+    <script src="{% static 'open_folderapp/js/bootstrap4-toggle.min.js' %} "></script>
+    <script src="{% static 'open_folderapp/js/highlight.js' %}"></script>
+    <script src="{% static 'open_folderapp/js/bootstrap-switch.js' %}"></script>
+    <script src="{% static 'open_folderapp/js/main.js' %}"></script>
+    <script>
+      $(function(){   
+        
+        $('.open_folder').on('switchChange.bootstrapSwitch', function (event, state) {  
+          var x = $(this).data('on-text');
+          var y = $(this).data('off-text');
+
+          if($(".open_folder").is(':checked')) {
+            $.ajax({
+              type:'POST',
+              url:"{% url 'open_folderapp:openfolder' %}",
+              data:{
+                patient_info:$("#patientID").val(),
+                csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+              },
+              success: function(data){
+                $('patientID').html(data)
+  
+              }
+          });
+            $("#inp1").val(x);
+          } else {
+            $.ajax({
+              type:'POST',
+              url:"{% url 'open_folderapp:closefolder' %}",
+              data:{
+                patient_info:$("#patientID").val(),
+                csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+              },
+              success: function(data){
+                $('h4').html(data)
+  
+              }
+          });
+            $("#inp1").val(y);
+          }
+      });
+      
+      $(document).on('click', "#address", function(e) {
+        e.preventDefault();
+
+        $.ajax({
+          type:"POST",
+          url:"{% url 'addressapp:address' %}",
+          data: {
+                 // from html form
+                 'patient_info' : $('#inputpersonal_info').val(),
+                 'street_name' : $('#inputstreetname').val(),
+                 'street_no' : $('#inputstreetno').val(),
+                 'state' : $('#inputstate').val(),
+                 'lga' : $('#inputlga').val(),
+                 'city' : $('#inputcity').val(),
+                 'csrfmiddlewaretoken': $("input[name=csrfmiddlewaretoken]").val(),
+                 },
+          success: function(data){
+              
+
+              },
+              
+
+          
+          error: function(data){
+             
+          }
+        })
+ });
+      
+      });
+  </script>
+  {% include 'addressapp/modal_address.html' %}
+    {% endblock  %}

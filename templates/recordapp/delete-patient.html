@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="card">
+    <div class="card-body">
+        <form method="post" action="">
+            {% csrf_token %}
+              <h3>Are you sure you want to delete patient details?</h3><br>
+              <h3>Your action cannot be reversed</h3><br>
+              <input class="btn btn-danger" type="submit" value="Yes" />
+              <a href="{% url 'recordapp:all-patients' %}"><div class="btn btn-primary">Cancel</div></a>
+         </form>
+    </div>
+  </div>
+{% endblock main %}

@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="card">
+    <div class="card-header">
+     Update Patient Record
+    </div>
+    <div class="card-body">
+      <div class="container">
+        <form >
+          <div class="row">
+            <div class="col-12 mb-3">
+              <label for="inputHospitalNo" class="form-label">Hospital No</label>
+              <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping"><i class="bi bi-person-badge"></i></span>
+                {{ patient_form.hospitalNo }}
+                
+              </div>
+          </div>
+        </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label for="inputFirstName" class="form-label">First Name</label>
+              <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping"><i class="bi bi-person-circle"></i></span>
+                {{ patient_form.fname }}
+              </div>
+        
+            </div>
+            <div class="col-md-4">
+              <label for="inputMiddleName" class="form-label">Middle Name</label>
+              <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping"><i class="bi bi-person-circle"></i></span>
+                {{ patient_form.mname }}
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="inputLastName" class="form-label">Last Name</label>
+              <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping"><i class="bi bi-person-circle"></i></span>
+                {{ patient_form.lname }}
+              </div>
+              
+            </div>
+
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-4 ">
+              <p>Gender</p>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="F">
+                <label class="form-check-label" for="inlineRadio1">Female</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="M">
+                <label class="form-check-label" for="Male">Male</label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="inputDOB" class="form-label">DOB</label>
+              <input type="text" class="form-control" id="inputDOB" placeholder= "DOB">
+            </div>
+            <div class="col-md-4">
+              <label for="inputEmail" class="form-label">Email Address</label>
+              <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping"><i class="bi bi-envelope"></i></span>
+                {{ patient_form.email }}
+              
+              </div>
+            </div>
+
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <label for="inputOccupation" class="form-label">Occupation</label>
+              <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping"><i class="bi bi-layers"></i></span>
+                <input type="email" class="form-control" id="inputOccupation" placeholder= "profession" aria-label="profession" aria-describedby="addon-wrapping">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="inputState" class="form-label">State</label>
+              <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">@</span>
+                <input type="email" class="form-control" id="inputState" placeholder= "State" aria-label="State" aria-describedby="addon-wrapping">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="inputCity" class="form-label">City</label>
+              <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">@</span>
+                <input type="email" class="form-control" id="inputCity" placeholder= "City" aria-label="City" aria-describedby="addon-wrapping">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <label for="inputTribe" class="form-label">Tribe</label>
+              <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">@</span>
+                <input type="email" class="form-control"  id="inputTribe" placeholder= "Tribe" aria-label="Tribe" aria-describedby="addon-wrapping">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="inputReligion" class="form-label">Religion</label>
+              <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">@</span>
+                <input type="email" class="form-control"  id="inputReligion" placeholder= "Religion" aria-label="Religion" aria-describedby="addon-wrapping">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="inputPhone" class="form-label">Phone Number</label>
+              <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">@</span>
+                <input type="email" class="form-control"  id="inputPhone" placeholder= "Phone Number" aria-label="Phone Number" aria-describedby="addon-wrapping">
+              </div>
+            </div>
+
+          </div>
+          
+          <div  class="row mt-3" >
+            <div class="col-12 d-grid gap-2" >
+              <button type="submit" class="btn btn-dark">Update Patient</button>
+            </div>
+          </div>
+          
+        </form>
+
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+{% endblock main %}

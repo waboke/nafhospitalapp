@@ -1,12 +1,12 @@
 import os
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mainapp.settings')
 import django
 django.setup()
 
 # FAKE POP SCRIPT
 import random
 import numpy as np
-from recordapp.models import Patient_info, patient_pic, Rank, Unit, Next_of_kin, Address
+from recordapp.models import Patient_info, patient_pic
 from faker import Faker
 
 fakegen = Faker()
