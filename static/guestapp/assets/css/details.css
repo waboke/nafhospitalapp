@@ -1,0 +1,110 @@
+.update {
+  grid-area: update;
+}
+
+.hospital_no {
+  grid-area: hospital_no;
+}
+
+.fullnames {
+  grid-area: fullnames;
+}
+
+.unit {
+  grid-area: unit;
+}
+
+.status {
+  grid-area: status;
+}
+
+.picture {
+  grid-area: picture;
+}
+
+.email {
+  grid-area: email;
+}
+
+.gender {
+  grid-area: gender;
+}
+
+.age {
+  grid-area: age;
+}
+
+.ocupation {
+  grid-area: ocupation;
+}
+
+.tribe {
+  grid-area: tribe;
+}
+
+.phone {
+  grid-area: phone;
+}
+
+.city {
+  grid-area: city;
+}
+
+.state {
+  grid-area: state;
+}
+
+.religion {
+  grid-area: religion;
+}
+
+.next_of_kin {
+  grid-area: next_of_kin;
+}
+
+.radiology {
+  grid-area: radiology;
+}
+
+.open_folder {
+  grid-area: open_folder;
+}
+
+.doctor {
+  grid-area: doctor;
+}
+
+.lab {
+  grid-area: lab;
+}
+
+.pharm {
+  grid-area: pharm;
+}
+
+.dental {
+  grid-area: dental;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas: "update update update update update update" "hospital_no fullnames  age gender status unit" "picture tribe city ocupation  state religion" "picture email  phone next_of_kin next_of_kin next_of_kin" "radiology  open_folder doctor pharm dental lab";
+  grid-gap: 10px;
+  background-color: #e1e4e7;
+  padding: 5px;
+  margin-top: -10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 5px 0;
+  font-size: 15px;
+}
+
+#details {
+  margin-top: 5px;
+  padding-top: 5px;
+}
+
+/*# sourceMappingURL=details.css.map */

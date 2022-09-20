@@ -1,0 +1,44 @@
+{% extends 'guestapp/base.html' %}
+{% load static %}
+{% block title %}Login page{% endblock title %}
+{% block header %}
+<main class="login-form">
+    <div class="container container-login">
+      <div class="card">
+        <div class="card-header">
+         <p> User Login </p>
+         {% if messages %}
+         <div id="message-login">
+              {% for message in messages %}
+                  {{ message }}
+              {% endfor %}
+         </div>
+          {% endif %}
+         
+        </div>
+        <div class="card-body">
+          <form method="post" action="{% url 'usersapp:user-login' %}" >
+            {% csrf_token %}
+            
+              <div class="form-group col-md mb-2">
+                <label for="username">Username/Email</label>
+                 {{form.username}}
+                 <small> <span> {{form.error}}</span></small>
+              </div>
+            
+           
+              <div class="form-group col-md mb-3">
+                <label for="password">password</label>
+                {{form.password}}
+              </div>
+              <div class="form-group d-grid  mb-3"> 
+                <button class="btn btn-primary " type="submit">Login</button>
+              </div>
+          </form>
+          <div class="col-md text-center">Not yet registered? <a href="#">Click Here</a> </div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock  %}
+<{% block content %}{% endblock  %}
